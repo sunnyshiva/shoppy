@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if
+  [[ -s "/Users/sunnygarg/shoppy/gems/environment" ]]
+then
+  source "/Users/sunnygarg/shoppy/gems/environment"
+  exec irb "$@"
+else
+  echo "ERROR: Missing RVM environment file: '/Users/sunnygarg/shoppy/gems/environment'" >&2
+  exit 1
+fi
