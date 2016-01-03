@@ -13,6 +13,7 @@ module Shoppy
       # Load application's model / class decorators
       Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
+        config.assets.initialize_on_precompile = false
       end
 
       # Load application's view overrides
@@ -35,6 +36,5 @@ module Shoppy
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-    config.assets.initialize_on_precompile = false
   end
 end
